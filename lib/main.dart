@@ -44,7 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 const SnackBar(content: Text('Submitting...')),
               );
           }
-          if (state.formIsValid) {
+          if (state.isSubmitted) {
             ScaffoldMessenger.of(context).hideCurrentSnackBar();
             showDialog<void>(
               context: context,
@@ -70,8 +70,9 @@ class HomeView extends StatelessWidget {
       body: Stack(
         children: [
           Container(
-            decoration:
-                const BoxDecoration(image: DecorationImage(fit: BoxFit.fill, image: AssetImage("images/doodle.png"))),
+            decoration: const BoxDecoration(
+                image: DecorationImage(
+                    fit: BoxFit.fill, image: AssetImage("images/doodle.png"))),
           ),
           Align(
             alignment: const Alignment(1, 1),
@@ -116,7 +117,8 @@ class HomeView extends StatelessWidget {
                                 style: TextStyle(fontSize: 20),
                               ),
                               Container(
-                                margin: const EdgeInsets.fromLTRB(20, 5, 20, 10),
+                                margin:
+                                    const EdgeInsets.fromLTRB(20, 5, 20, 10),
                                 child: BlocBuilder<HomeBloc, HomeState>(
                                   // buildWhen: (prev,current)=>prev != current,
                                   builder: (context, state) {
@@ -127,19 +129,28 @@ class HomeView extends StatelessWidget {
                                           {context.read<HomeBloc>().add(CodeChanged(code: content))},
                                       style: const TextStyle(fontSize: 22.0, color: Colors.black87),
                                       decoration: InputDecoration(
-                                        errorText: state.showErrorMessage() ? null : "کد میز باید ۵ رقمی باشد",
+                                        errorText: state.showErrorMessage()
+                                            ? "کد میز باید ۵ رقمی باشد"
+                                            : null,
                                         filled: true,
                                         fillColor: Colors.white,
                                         hintText: '123456',
-                                        hintStyle: const TextStyle(fontSize: 22.0, color: Colors.black45),
-                                        contentPadding: const EdgeInsets.only(left: 14.0, bottom: 8.0, top: 8.0),
+                                        hintStyle: const TextStyle(
+                                            fontSize: 22.0,
+                                            color: Colors.black45),
+                                        contentPadding: const EdgeInsets.only(
+                                            left: 14.0, bottom: 8.0, top: 8.0),
                                         focusedBorder: OutlineInputBorder(
-                                          borderSide: const BorderSide(color: Colors.transparent),
-                                          borderRadius: BorderRadius.circular(15),
+                                          borderSide: const BorderSide(
+                                              color: Colors.transparent),
+                                          borderRadius:
+                                              BorderRadius.circular(15),
                                         ),
                                         enabledBorder: UnderlineInputBorder(
-                                          borderSide: const BorderSide(color: Colors.transparent),
-                                          borderRadius: BorderRadius.circular(15),
+                                          borderSide: const BorderSide(
+                                              color: Colors.transparent),
+                                          borderRadius:
+                                              BorderRadius.circular(15),
                                         ),
                                       ),
                                     );
@@ -151,10 +162,14 @@ class HomeView extends StatelessWidget {
                                 child: Container(
                                   width: double.infinity,
                                   decoration: const BoxDecoration(
-                                      color: Colors.yellow, borderRadius: BorderRadius.all(Radius.circular(15))),
+                                      color: Colors.yellow,
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(15))),
                                   margin: const EdgeInsets.all(20),
-                                  child:
-                                      const Center(child: Padding(padding: EdgeInsets.all(15), child: Text("ورود"))),
+                                  child: const Center(
+                                      child: Padding(
+                                          padding: EdgeInsets.all(15),
+                                          child: Text("ورود"))),
                                 ),
                               ),
                             ],
