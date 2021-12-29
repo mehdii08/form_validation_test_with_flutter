@@ -77,7 +77,7 @@ class HomeView extends StatelessWidget {
           Align(
             alignment: const Alignment(1, 1),
             child: GestureDetector(
-              onTap: () => {print('contact-us')},
+              onTap: () => print('contact-us'),
               child: const Padding(
                 padding: EdgeInsets.fromLTRB(0, 0, 10, 10),
                 child: Text("تماس با ما"),
@@ -125,9 +125,12 @@ class HomeView extends StatelessWidget {
                                     return TextField(
                                       controller: myController,
                                       autofocus: false,
-                                      onChanged: (content) =>
-                                          {context.read<HomeBloc>().add(CodeChanged(code: content))},
-                                      style: const TextStyle(fontSize: 22.0, color: Colors.black87),
+                                      onChanged: (content) => context
+                                          .read<HomeBloc>()
+                                          .add(CodeChanged(code: content)),
+                                      style: const TextStyle(
+                                          fontSize: 22.0,
+                                          color: Colors.black87),
                                       decoration: InputDecoration(
                                         errorText: state.showErrorMessage()
                                             ? "کد میز باید ۵ رقمی باشد"
@@ -158,7 +161,8 @@ class HomeView extends StatelessWidget {
                                 ),
                               ),
                               GestureDetector(
-                                onTap: () => {context.read<HomeBloc>().add(FormSubmitted(code: myController.text))},
+                                onTap: () => context.read<HomeBloc>().add(
+                                    FormSubmitted(code: myController.text)),
                                 child: Container(
                                   width: double.infinity,
                                   decoration: const BoxDecoration(
