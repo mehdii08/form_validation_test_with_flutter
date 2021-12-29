@@ -1,13 +1,14 @@
-import 'FormStatus.dart';
-
 class HomeState {
-  const HomeState({this.code = '', this.formIsValid = false, this.isLoading = false});
+  const HomeState({
+    this.code = '',
+    this.isLoading = false,
+    this.isSubmitted = false,
+  });
 
   final String code;
-  final bool formIsValid;
-  final bool isLoading;
+  final bool isLoading, isSubmitted;
 
-  bool showErrorMessage() => code.isEmpty || code.length == 5;
+  bool showErrorMessage() => code.isNotEmpty && !formIsValid;
 
-  bool validateForm(String code) => code.length == 5;
+  bool get formIsValid => code.length == 5;
 }
