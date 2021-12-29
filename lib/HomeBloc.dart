@@ -4,13 +4,8 @@ import 'HomeState.dart';
 
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   HomeBloc() : super(const HomeState()) {
-    on<InitialEvent>(_onInitialEvent);
     on<CodeChanged>(_onCodeChanged);
     on<FormSubmitted>(_onFormSubmitted);
-  }
-
-  void _onInitialEvent(InitialEvent event, Emitter<HomeState> emit) {
-    emit(const HomeState());
   }
 
   void _onCodeChanged(CodeChanged event, Emitter<HomeState> emit) {

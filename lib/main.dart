@@ -73,7 +73,8 @@ class HomeView extends StatelessWidget {
             Container(
               decoration: const BoxDecoration(
                   image: DecorationImage(
-                      fit: BoxFit.fill, image: AssetImage("images/doodle.png"))),
+                      fit: BoxFit.fill,
+                      image: AssetImage("images/doodle.png"))),
             ),
             Align(
               alignment: const Alignment(1, 1),
@@ -107,7 +108,8 @@ class HomeView extends StatelessWidget {
                           aspectRatio: 1,
                           child: Container(
                             decoration: const BoxDecoration(
-                              borderRadius: BorderRadius.all(Radius.circular(30)),
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(30)),
                               color: Color.fromRGBO(255, 255, 255, 0.6),
                             ),
                             child: Column(
@@ -143,7 +145,9 @@ class HomeView extends StatelessWidget {
                                               fontSize: 22.0,
                                               color: Colors.black45),
                                           contentPadding: const EdgeInsets.only(
-                                              left: 14.0, bottom: 8.0, top: 8.0),
+                                              left: 14.0,
+                                              bottom: 8.0,
+                                              top: 8.0),
                                           focusedBorder: OutlineInputBorder(
                                             borderSide: const BorderSide(
                                                 color: Colors.transparent),
@@ -162,8 +166,9 @@ class HomeView extends StatelessWidget {
                                   ),
                                 ),
                                 GestureDetector(
-                                  onTap: () => context.read<HomeBloc>().add(
-                                      FormSubmitted(code: myController.text)),
+                                  onTap: () => context
+                                      .read<HomeBloc>()
+                                      .add(FormSubmitted()),
                                   child: Container(
                                     width: double.infinity,
                                     decoration: const BoxDecoration(
